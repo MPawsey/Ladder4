@@ -7,7 +7,7 @@
  */
 
 // Apply the java-library plugin to add support for Java Library
-apply plugin: 'java-library'
+apply plugin: 'java'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -17,5 +17,16 @@ repositories {
 }
 
 dependencies {
-	compile 'net.dv8tion:JDA:4.2.0_214'
+	implementation 'net.dv8tion:JDA:4.2.0_214'
+}
+
+jar {
+    archiveBaseName = 'LadderBot'
+    archiveVersion =  '1.0'
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
 }
